@@ -1,43 +1,43 @@
+function cmToMeter(value) {
+    return value / 100;
+}
+
+function celsiusToFahrenheit(value) {
+    return (value * 9 / 5) + 32;
+}
+
+function inrToUsd(value) {
+    const rate = 0.012; // static rate
+    return value * rate;
+}
+
 function convertUnit() {
     let value = document.getElementById("inputValue").value;
     let unit = document.getElementById("unitType").value;
-    let resultText = "";
+    let result = "";
 
-    if (value === "") {
-        resultText = "Please enter a value";
+    if (value === "" || unit === "") {
+        document.getElementById("result").innerText = "Please enter value and select unit";
+        return;
     }
 
-    // Length Converter
-    else if (unit === "mToKm") {
-        resultText = value + " meters = " + (value / 1000) + " kilometers";
-    }
-    else if (unit === "kmToM") {
-        resultText = value + " kilometers = " + (value * 1000) + " meters";
-    }
+    value = parseFloat(value);
 
-    // Temperature Converter
+    if (unit === "cmToM") {
+        result = cmToMeter(value) + " meters";
+    }
     else if (unit === "cToF") {
-        resultText = value + "°C = " + ((value * 9 / 5) + 32) + "°F";
+        result = celsiusToFahrenheit(value) + " °F";
     }
-    else if (unit === "fToC") {
-        resultText = value + "°F = " + ((value - 32) * 5 / 9).toFixed(2) + "°C";
-    }
-
-    // Weight Converter
-    else if (unit === "kgToG") {
-        resultText = value + " kg = " + (value * 1000) + " grams";
-    }
-    else if (unit === "gToKg") {
-        resultText = value + " grams = " + (value / 1000) + " kg";
+    else if (unit === "inrToUsd") {
+        result = inrToUsd(value).toFixed(2) + " USD";
     }
 
-    // Time Converter
-    else if (unit === "hrToMin") {
-        resultText = value + " hours = " + (value * 60) + " minutes";
-    }
-    else if (unit === "minToHr") {
-        resultText = value + " minutes = " + (value / 60) + " hours";
-    }
+    document.getElementById("result").innerText = "Result: " + result;
+}
 
-    document.getElementById("result").innerText = resultText;
+function resetAll() {
+    document.getElementById("inputValue").value = "";
+    document.getElementById("unitType").value = "";
+    document.getElementById("result").innerText = "Converted value will appear here";
 }
