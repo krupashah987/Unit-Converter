@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Unit Converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Unit Converter</h1>
+
+        <input type="number" id="inputValue" placeholder="Enter value">
+
+        <select id="unitType">
+         <option value="mToKm">Meters to Kilometers</option>
+         <option value="kmToM">Kilometers to Meters</option>
+
+         <option value="cToF">Celsius to Fahrenheit</option>
+         <option value="fToC">Fahrenheit to Celsius</option>
+
+         <option value="kgToG">Kilograms to Grams</option>
+         <option value="gToKg">Grams to Kilograms</option>
+
+         <option value="hrToMin">Hours to Minutes</option>
+         <option value="minToHr">Minutes to Hours</option>
+        </select>
+
+        <button onclick="convertUnit()">Convert</button>
+
+        <!-- Output displayed at last -->
+        <div id="result">
+            Result will be displayed here
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
