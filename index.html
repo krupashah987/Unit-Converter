@@ -7,33 +7,23 @@
 </head>
 <body>
 
-    <div class="container">
-        <h1>Unit Converter</h1>
+<div class="container">
+    <h1>Unit Converter</h1>
 
-        <input type="number" id="inputValue" placeholder="Enter value">
+    <input type="number" id="inputValue" placeholder="Enter value" oninput="convertUnit()">
 
-        <select id="unitType">
-         <option value="mToKm">Meters to Kilometers</option>
-         <option value="kmToM">Kilometers to Meters</option>
+    <select id="unitType" onchange="convertUnit()">
+        <option value="">Select Conversion</option>
+        <option value="cmToM">Centimeter to Meter</option>
+        <option value="cToF">Celsius to Fahrenheit</option>
+        <option value="inrToUsd">INR to USD</option>
+    </select>
 
-         <option value="cToF">Celsius to Fahrenheit</option>
-         <option value="fToC">Fahrenheit to Celsius</option>
+    <button onclick="resetAll()">Clear</button>
 
-         <option value="kgToG">Kilograms to Grams</option>
-         <option value="gToKg">Grams to Kilograms</option>
+    <div id="result">Converted value will appear here</div>
+</div>
 
-         <option value="hrToMin">Hours to Minutes</option>
-         <option value="minToHr">Minutes to Hours</option>
-        </select>
-
-        <button onclick="convertUnit()">Convert</button>
-
-        <!-- Output displayed at last -->
-        <div id="result">
-            Result will be displayed here
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
